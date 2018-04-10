@@ -1,8 +1,16 @@
 package com.example.yy.nettydemo;
 
-import java.nio.channels.SocketChannel;
-
-public class StringProtocolInitalizer extends ChannelInitializer<SocketChannel>  {
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.codec.string.StringEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+@Component
+@Qualifier("springProtocolInitializer")
+public class StringProtocolInitalizer extends ChannelInitializer<SocketChannel> {
     @Autowired
     StringDecoder stringDecoder;
 

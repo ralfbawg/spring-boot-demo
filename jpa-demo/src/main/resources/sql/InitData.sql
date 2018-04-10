@@ -1,0 +1,2 @@
+INSERT INTO user (ID,USERNAME) VALUES (1,'陈全');
+

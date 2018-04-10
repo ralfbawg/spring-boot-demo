@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    database: h2
+  datasource:
+    data:
+      classpath*:/sql/InitData.sql
+    schema:
+      classpath*:/sql/CreateTables.sql
+    continueOnError:
+     false
+logging:
+  level:
+    root:
+      info
