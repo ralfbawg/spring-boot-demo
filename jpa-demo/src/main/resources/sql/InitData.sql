@@ -1,2 +1,4 @@
-INSERT INTO user (ID,USERNAME) VALUES (1,'陈全');
+INSERT INTO USER(ID,USERNAME,AGE) VALUES (1,'陈全',32);
+---,(1,'测试1',88),(1,'测试2',99);
+
 
