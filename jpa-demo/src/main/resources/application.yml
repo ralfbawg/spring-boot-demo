@@ -8,6 +8,8 @@ spring:
       classpath*:/sql/CreateTables.sql
     continueOnError:
      false
+    url:
+      jdbc:h2:~/test
 logging:
   level:
     root:
