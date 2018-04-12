@@ -9,5 +9,7 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+    service-url:
+      default-zone: http://localhost:${server.port}/eureka/
 
 
