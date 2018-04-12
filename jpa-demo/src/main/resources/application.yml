@@ -1,6 +1,8 @@
 spring:
   jpa:
     database: h2
+    hibernate:
+      ddl-auto: none
   datasource:
     data:
       classpath*:/sql/InitData.sql
@@ -9,7 +11,7 @@ spring:
     continueOnError:
      false
     url:
-      jdbc:h2:~/test
+      jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
 logging:
   level:
     root:
