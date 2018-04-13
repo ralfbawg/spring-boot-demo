@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: admin-server
+  boot:
+    admin:
+      context-path:  /sba
+server:
+  port: 10000
+  context-path: /monitor/
