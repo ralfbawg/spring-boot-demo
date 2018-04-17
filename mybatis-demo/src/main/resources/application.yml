@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+    type: com.alibaba.druid.pool.DruidDataSource
+
+logging:
+  level:
+    root:
+      INFO
+mybatis:
+  config-location:
+  mapperLocations: classpath*:/mybatis/**/*Mapper.xml
+  configuration:
+    cache-enabled: true
+    lazy-loading-enabled: true
+    default-executor-type: batch
+

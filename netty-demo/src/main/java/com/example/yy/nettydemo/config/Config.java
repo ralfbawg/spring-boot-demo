@@ -23,19 +23,19 @@ import io.netty.handler.codec.string.StringEncoder;
 
 @Configuration
 public class Config {
-    @Value("${boss.thread.count}")
+    @Value("${netty.boss.thread.count}")
     private int bossCount;
 
-    @Value("${worker.thread.count}")
+    @Value("${netty.worker.thread.count}")
     private int workerCount;
 
-    @Value("${tcp.port}")
+    @Value("${netty.tcp.port}")
     private int tcpPort;
 
-    @Value("${so.keepalive}")
+    @Value("${netty.so.keepalive}")
     private boolean keepAlive;
 
-    @Value("${so.backlog}")
+    @Value("${netty.so.backlog}")
     private int backlog;
 
     @Autowired
@@ -54,6 +54,10 @@ public class Config {
         for (@SuppressWarnings("rawtypes")
                 ChannelOption option : keySet) {
             b.option(option, tcpChannelOptions.get(option));
+        }
+        for (@SuppressWarnings("rawtypes")
+                ChannelOption option : keySet) {
+            b.childOption(option, tcpChannelOptions.get(option));
         }
         return b;
     }
@@ -78,6 +82,13 @@ public class Config {
         Map<ChannelOption<?>, Object> options = new HashMap<ChannelOption<?>, Object>();
         options.put(ChannelOption.SO_KEEPALIVE, keepAlive);
         options.put(ChannelOption.SO_BACKLOG, backlog);
+        return options;
+    }
+
+    @Bean(name = "tcpChildOptions")
+    public Map<ChannelOption<?>, Object> tcpChildOptions() {
+        Map<ChannelOption<?>, Object> options = new HashMap<ChannelOption<?>, Object>();
+        options.put(ChannelOption.TCP_NODELAY, true);
         return options;
     }
 
